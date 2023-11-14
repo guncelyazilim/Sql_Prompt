@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_ObjectsD_YenidenDuzenle</Title>
+      <Shortcut>snp_ObjectsD_YenidenDuzenle</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @ITObjectID int
+
+Set @ITObjectID =  $SELECTIONSTART$ ITObjectID Yİ HA PURYA YAPİŞTUR $SELECTIONEND$
+
+Update IT15_ObjectsD Set CaptionSize = 9 Where ITObjectID = @ITObjectID And IsNull(CaptionSize,0) < 9
+Update IT15_ObjectsD Set CaptionSize = 24 Where ITObjectID = @ITObjectID And IsNull(CaptionSize,0) > 24
+
+
+
+;WITH ASD AS (
+
+	Select	ITObjectDID, 5*ROW_NUMBER() over(order by ShowSiraNo) AS ShowSiraNo
+	from	IT15_ObjectsD 
+	Where	ITobjectID = @ITObjectID
+			And ShowSiraNo > 1
+
+)
+UPDATE	OD Set ShowSiraNo = T.ShowSiraNo
+From	IT15_ObjectsD OD
+		INNER JOIN ASD T ON T.ITobjectDID = OD.ITObjectDID
+		
+Where  	1 = 1]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

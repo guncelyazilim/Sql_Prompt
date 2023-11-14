@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Orgatex</Title>
+      <Shortcut>snp_Orgatex</Shortcut>
+      <Description>Orgatex Kontrol</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[	--DELETE DP
+	--FROM ORGATEX_Dyelot_Procedure DP
+	--WHERE DP.Dyelot = 'JB-23' 
+
+	--DELETE DR
+	--FROM ORGATEX_Dyelot_Recipe DR
+	--WHERE DR.Dyelot = 'JB-23' 
+
+	--DELETE D
+	--FROM ORGATEX_Dyelots D
+	--WHERE D.Dyelot = 'JB-23' 
+
+	--Truncate Table IT210_Dyelots
+	--Truncate Table IT210_Dyelot_Recipe
+	--Truncate Table IT210_Dyelot_Procedure
+	--Truncate Table IT210_Recipes
+
+
+
+	Set Ansi_Nulls On 
+	Set Ansi_Warnings On
+	go
+	Select D.*
+	FROM ORGATEX_Dyelots D
+	WHERE D.Dyelot = 'JB-23'
+
+	Select *
+	FROM ORGATEX_Dyelot_Recipe D
+	WHERE D.Dyelot = 'JB-23'
+
+	Select D.*
+	FROM ORGATEX_Recipes D
+	WHERE D.RecipeNo = 'G387'
+
+	Select DP.*
+	FROM ORGATEX_Dyelot_Procedure DP
+	WHERE DP.Dyelot = 'JB-23' 
+
+
+	
+
+
+	]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

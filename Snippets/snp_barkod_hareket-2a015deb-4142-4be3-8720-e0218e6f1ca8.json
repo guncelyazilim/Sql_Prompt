@@ -1,0 +1,6 @@
+{
+  "id": "2a015deb-4142-4be3-8720-e0218e6f1ca8",
+  "prefix": "snp_barkod_hareket",
+  "description": "",
+  "body": "Select\tFD.SeriID, FisDetayID, FD.AddDate, FT.FisTurAdi, FD.Miktar_Mt, FD.Miktar_Kg, FD.Miktar_Ad, S.UrunAdi, SM.KaliteID, KK.KaliteKodu, SM.DepoAdresID\nFrom\tIT06_HareketFisD FD\n\t\tINNER JOIN IT06_HareketFisM FM On FM.FisID = FD.FisID\n\t\tINNER JOIN IT01_FisTurleri FT ON FT.FisTurID = Fm.FisTurID\n\t\tINNER JOIN IT06_StokKarti SK On SK.UrunID = Fd.urunID \n\t\tINNER JOIN IT06_Stoklar S On S.UrunTID = SK.UrunTID\n\t\tINNER JOIN IT08_SeriM SM ON Sm.seriID = FD.SeriID\n\t\tLEFT OUTER JOIN IT01_KaliteKodlari KK ON KK.KaliteID = SM.KaliteID \nWhere\tFD.SeriID = $SELECTIONSTART$ PARKOT NUMERASINI BURYA YABISDIR! $SELECTIONEND$\nOrder By FD.FisDetayID"
+}

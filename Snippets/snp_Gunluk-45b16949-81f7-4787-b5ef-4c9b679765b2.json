@@ -1,0 +1,6 @@
+{
+  "id": "45b16949-81f7-4787-b5ef-4c9b679765b2",
+  "prefix": "snp_Gunluk",
+  "description": "Günlük Yapılan Listesi",
+  "body": "Select Distinct [ObjectName]\n  FROM [LEOAuditDB].[dbo].[DDLEvents]\n  Where HostName = 'GNC-NB115'\n\tAnd EventDate Between '2021-01-11 08:00' And '2021-01-11 20:00'"
+}

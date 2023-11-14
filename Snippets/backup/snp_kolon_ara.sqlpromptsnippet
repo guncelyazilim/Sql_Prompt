@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_kolon_ara</Title>
+      <Shortcut>snp_kolon_ara</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select      C.name Column_Name, O.name As Object_Name, O.type_desc
+From        sys.columns C
+            Inner Join sys.objects O On O.object_id = C.object_id
+Where       C.name Like '%$CURSOR$%'
+Order By    O.type_desc]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

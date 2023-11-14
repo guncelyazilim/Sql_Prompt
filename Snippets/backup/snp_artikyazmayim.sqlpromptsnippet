@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_artikyazmayim</Title>
+      <Shortcut>snp_artikyazmayim</Shortcut>
+      <Description>Barkodları getirir</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>burayabarkodyaz</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+      </Declarations>
+      <Code Language="sql"><![CDATA[Select * From IT08_SeriM SM
+INNER JOIN IT06_Stoklar S ON S.UrunTID = SM.UrunTID
+WHERE SM.SeriID = $burayabarkodyaz$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

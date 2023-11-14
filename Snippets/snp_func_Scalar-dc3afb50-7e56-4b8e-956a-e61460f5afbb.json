@@ -1,0 +1,6 @@
+{
+  "id": "dc3afb50-7e56-4b8e-956a-e61460f5afbb",
+  "prefix": "snp_func_Scalar",
+  "description": "",
+  "body": "Create Function [dbo].[$CURSOR$] \n()\nReturns int\nAs\nBegin \n\tDeclare @Sonuc int\n\n    Return @Sonuc\nEnd"
+}

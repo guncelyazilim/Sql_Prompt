@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_barkod_hareket</Title>
+      <Shortcut>snp_barkod_hareket</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select	FD.SeriID, FisDetayID, FD.AddDate, FT.FisTurAdi, FD.Miktar_Mt, FD.Miktar_Kg, FD.Miktar_Ad, S.UrunAdi, SM.KaliteID, KK.KaliteKodu, SM.DepoAdresID
+From	IT06_HareketFisD FD
+		INNER JOIN IT06_HareketFisM FM On FM.FisID = FD.FisID
+		INNER JOIN IT01_FisTurleri FT ON FT.FisTurID = Fm.FisTurID
+		INNER JOIN IT06_StokKarti SK On SK.UrunID = Fd.urunID 
+		INNER JOIN IT06_Stoklar S On S.UrunTID = SK.UrunTID
+		INNER JOIN IT08_SeriM SM ON Sm.seriID = FD.SeriID
+		LEFT OUTER JOIN IT01_KaliteKodlari KK ON KK.KaliteID = SM.KaliteID 
+Where	FD.SeriID = $SELECTIONSTART$ PARKOT NUMERASINI BURYA YABISDIR! $SELECTIONEND$
+Order By FD.FisDetayID]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

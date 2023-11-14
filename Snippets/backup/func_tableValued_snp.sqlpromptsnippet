@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_func_tableValued</Title>
+      <Shortcut>snp_func_tableValued</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Create Function [dbo].[$CURSOR$] 
+()
+Returns @Sonuc table (TmpID int, Kod varchar(100))
+As
+Begin
+	
+    Return
+End
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

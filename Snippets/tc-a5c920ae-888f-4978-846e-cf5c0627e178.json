@@ -1,0 +1,6 @@
+{
+  "id": "a5c920ae-888f-4978-846e-cf5c0627e178",
+  "prefix": "tc",
+  "description": "TRY ... CATCH fragment",
+  "body": "BEGIN TRY\r\n    $SELECTEDTEXT$\r\nEND TRY\r\nBEGIN CATCH\r\n    $CURSOR$\r\nEND CATCH"
+}

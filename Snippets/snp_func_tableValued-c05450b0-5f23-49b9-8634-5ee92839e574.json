@@ -1,0 +1,6 @@
+{
+  "id": "c05450b0-5f23-49b9-8634-5ee92839e574",
+  "prefix": "snp_func_tableValued",
+  "description": "",
+  "body": "Create Function [dbo].[$CURSOR$] \n()\nReturns @Sonuc table (TmpID int, Kod varchar(100))\nAs\nBegin\n\t\n    Return\nEnd\n"
+}

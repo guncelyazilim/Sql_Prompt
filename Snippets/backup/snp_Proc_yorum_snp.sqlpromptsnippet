@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Proc_yorum_snp</Title>
+      <Shortcut>snp_Proc_yorum_snp</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[/*
+	Yazan : $USER$
+	Tarih : $DATE$ $TIME$
+	Amacı : $CURSOR$
+*/]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

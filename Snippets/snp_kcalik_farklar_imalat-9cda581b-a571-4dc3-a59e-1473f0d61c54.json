@@ -1,0 +1,6 @@
+{
+  "id": "9cda581b-a571-4dc3-a59e-1473f0d61c54",
+  "prefix": "snp_kcalik_farklar_imalat",
+  "description": "",
+  "body": "SELECT  MIGI.UrtMiktar_Kg, T.TOPlam, * From IT210_MuhasebeGunlukImalat MIGI \nINNER JOIN (\n\tSELECT GCM.MuhasebeAktarimCikanID, TOPlam =  SUM(GCM.Miktar_Kg) From IT07_GerCikanMalzeme GCM GROUP BY MuhasebeAktarimCikanID\n) T ON T.MuhasebeAktarimCikanID = MIGI.MuhasebeAktarimCikanID\nWHERE T.TOPlam <> MIGI.UrtMiktar_Kg AND (MIGI.UrtMiktar_Kg- T.TOPlam) > 1\n\nORDER BY MIGI.Tarih"
+}

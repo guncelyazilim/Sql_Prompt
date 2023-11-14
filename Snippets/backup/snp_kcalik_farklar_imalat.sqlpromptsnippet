@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_kcalik_farklar_imalat</Title>
+      <Shortcut>snp_kcalik_farklar_imalat</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[SELECT  MIGI.UrtMiktar_Kg, T.TOPlam, * From IT210_MuhasebeGunlukImalat MIGI 
+INNER JOIN (
+	SELECT GCM.MuhasebeAktarimCikanID, TOPlam =  SUM(GCM.Miktar_Kg) From IT07_GerCikanMalzeme GCM GROUP BY MuhasebeAktarimCikanID
+) T ON T.MuhasebeAktarimCikanID = MIGI.MuhasebeAktarimCikanID
+WHERE T.TOPlam <> MIGI.UrtMiktar_Kg AND (MIGI.UrtMiktar_Kg- T.TOPlam) > 1
+
+ORDER BY MIGI.Tarih]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

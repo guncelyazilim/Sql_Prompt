@@ -1,0 +1,6 @@
+{
+  "id": "6fd177d1-bf58-4b0e-8a21-9967576a1d29",
+  "prefix": "snp_Ansi_DistrubutedTran",
+  "description": "",
+  "body": "Set Ansi_Nulls On\nSet Ansi_Warnings On\nGo\n"
+}

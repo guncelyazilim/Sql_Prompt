@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_hareket_tip_yetki_kontrol</Title>
+      <Shortcut>snp_hareket_tip_yetki_kontrol</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[CREATE PROCEDURE PSP06_HareketTipYetkiKontrol ( @HareketTipID INT )
+AS
+SET NOCOUNT ON
+BEGIN
+
+    DECLARE @RolID INT, @HareketTipAdi VARCHAR(100), @IsYetkili BIT = 0
+
+    BEGIN TRY
+
+        SET @RolID = ( SELECT dbo.F15_GetActivePersonelRolID ( 1 ))
+
+        IF EXISTS ( SELECT * FROM ZKC_IT15_HareketTipRolleri KR WHERE KR.ITVisible = 1 AND KR.RolID = @RolID AND KR.HareketTipID = @HareketTipID )
+        BEGIN
+            SET @IsYetkili = 1
+        END
+
+        IF @IsYetkili = 0
+        BEGIN
+			SET @HareketTipAdi = (SELECT TOP (1) HT.HareketTipAdi From IT01_HareketTipleri HT WHERE HT.HareketTipID = @HareketTipID)
+            RAISERROR ( '<%s> hareket tipine yetkiniz olmadığından detay hareketini silemezsiniz.', 16, 1, @HareketTipAdi )
+        END
+
+    END TRY
+    BEGIN CATCH
+
+        DECLARE @ITObjectName NVARCHAR(126)
+        SET @ITObjectName = OBJECT_NAME ( @@PROCID )
+        EXECUTE SP15_GenerateError @ITObjectName
+
+    END CATCH
+
+END
+
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

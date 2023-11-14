@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_kullanici_default_alan_degerleri</Title>
+      <Shortcut>snp_kullanici_default_alan_degerleri</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[				SELECT OD.FieldName, ROD.ITDefValue From IT15_RolObjectsD ROD
+				INNER JOIN IT15_RolObjectsM ROM ON ROM.RolObjectMID = ROD.RolObjectMID
+				INNER JOIN IT15_Roller R ON R.RolID = ROM.RolID
+				INNER JOIN IT15_Kullanicilar K ON K.RolID = R.RolID
+				INNER JOIN IT15_ObjectsD OD ON OD.ITObjectDID = ROD.ITObjectDID
+				WHERE K.KullaniciKodu = dbo.F15_GetKullaniciConn() AND ROM.ITObjectID = 20064 
+				AND OD.FieldName IN ('MaliyetType', 'DesenMenseiID', 'KenarTarakEni', 'CozguIscilikDovizBirimID', 'DokumaIscilikDovizBirimID', 'TaharDovizBirimID')]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

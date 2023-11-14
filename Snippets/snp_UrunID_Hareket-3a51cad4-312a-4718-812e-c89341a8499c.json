@@ -1,0 +1,6 @@
+{
+  "id": "3a51cad4-312a-4718-812e-c89341a8499c",
+  "prefix": "snp_UrunID_Hareket",
+  "description": "",
+  "body": "Select      FD.SeriID, FD.FisDetayID, FD.AddDate, FT.FisTurAdi, \n\t\t\tFD.Miktar_Mt, FD.Miktar_Kg, FD.Miktar_Ad, S.UrunAdi, SM.KaliteID, KK.KaliteKodu\nFrom        IT06_HareketFisD FD\n            Inner Join IT06_HareketFisM FM On FM.FisID = FD.FisID\n            Inner Join IT01_FisTurleri FT On FT.FisTurID = FM.FisTurID\n            Inner Join IT06_StokKarti SK On SK.UrunID = FD.UrunID\n            Inner Join IT06_Stoklar S On S.UrunTID = SK.UrunTID\n            Inner Join IT08_SeriM SM On SM.SeriID = FD.SeriID\n            Left Outer Join IT01_KaliteKodlari KK On KK.KaliteID = SM.KaliteID\nWhere       FD.UrunID = $CURSOR$\nOrder By    FD.FisDetayID"
+}

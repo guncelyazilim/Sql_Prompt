@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_func_Scalar</Title>
+      <Shortcut>snp_func_Scalar</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Create Function [dbo].[$CURSOR$] 
+()
+Returns int
+As
+Begin 
+	Declare @Sonuc int
+
+    Return @Sonuc
+End]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

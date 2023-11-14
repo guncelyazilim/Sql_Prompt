@@ -1,0 +1,6 @@
+{
+  "id": "eb8dbac7-258d-49e5-adcb-904d32d5fcc8",
+  "prefix": "snp_crs",
+  "description": "",
+  "body": "Declare c Cursor Local For\n\t\t\nOpen c\nFetch Next From c Into @var\nWhile @@FETCH_STATUS = 0 Begin\n\t\t\t\n\n\tFetch Next From c Into @var\nEnd\nClose c\nDeallocate c"
+}

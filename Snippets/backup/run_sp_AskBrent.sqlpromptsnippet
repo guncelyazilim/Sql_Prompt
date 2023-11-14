@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>run_sp_AskBrent</Title>
+      <Shortcut>run_sp_AskBrent</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Set Ansi_Padding, Ansi_Warnings, ArithAbort, Concat_Null_Yields_Null On;
+
+Set Quoted_Identifier, Ansi_Nulls, Numeric_RoundAbort Off;
+
+Go
+Exec sp_AskBrent
+
+Go
+
+Exec dbo.sp_Blitz
+
+Go
+
+Exec sp_BlitzIndex]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

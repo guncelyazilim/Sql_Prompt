@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Missing_Index</Title>
+      <Shortcut>snp_Missing_Index</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @TabloAdi varchar(200)
+
+
+Set @TabloAdi = '$CURSOR$'
+-- Missing Index Script
+-- Original Author: Pinal Dave (C) 2011
+Select Top 25
+        dm_mid.database_id As DatabaseID, dm_migs.avg_user_impact * (dm_migs.user_seeks + dm_migs.user_scans) Avg_Estimated_Impact,
+        dm_migs.last_user_seek As Last_User_Seek, Object_Name(dm_mid.object_id, dm_mid.database_id) As [TableName],
+        'CREATE INDEX [IX_' + Object_Name(dm_mid.object_id, dm_mid.database_id) + '_' + Replace(Replace(Replace(IsNull(dm_mid.equality_columns, ''), ', ', '_'),
+                                                                                                        '[', ''), ']', '') + Case When dm_mid.equality_columns Is Not Null And dm_mid.inequality_columns Is Not Null
+                                                                                                                                  Then '_'
+                                                                                                                                  Else ''
+                                                                                                                             End + Replace(Replace(Replace(IsNull(dm_mid.inequality_columns,
+                                                                                                                                                ''), ', ', '_'),
+                                                                                                                                                '[', ''), ']',
+                                                                                                                                           '') + ']' + ' ON ' + dm_mid.statement + ' (' + IsNull(dm_mid.equality_columns,
+                                                                                                                                                '') + Case
+                                                                                                                                                When dm_mid.equality_columns Is Not Null And dm_mid.inequality_columns Is Not Null
+                                                                                                                                                Then ','
+                                                                                                                                                Else ''
+                                                                                                                                                End + IsNull(dm_mid.inequality_columns,
+                                                                                                                                                '') + ')' + IsNull(' INCLUDE (' + dm_mid.included_columns + ')',
+                                                                                                                                                '') As Create_Statement
+From    sys.dm_db_missing_index_groups dm_mig
+        Inner Join sys.dm_db_missing_index_group_stats dm_migs On dm_migs.group_handle = dm_mig.index_group_handle
+        Inner Join sys.dm_db_missing_index_details dm_mid On dm_mig.index_handle = dm_mid.index_handle
+Where   dm_mid.database_id = Db_Id()
+		And Object_Name(dm_mid.object_id, dm_mid.database_id) = @TabloAdi
+Order By Avg_Estimated_Impact Desc
+	
+Go]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

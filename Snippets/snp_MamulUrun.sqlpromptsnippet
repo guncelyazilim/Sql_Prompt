@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_MamulUrun</Title>
+      <Shortcut>snp_MamulUrun</Shortcut>
+      <Description>Mamul Ürün Kontrol</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select S.HamUrunTID, SMK.RenkID, SMK.BaskiDesenVaryantID, S.IslemAkisMID, SMK.FinalIslemTipID, SIA.StokIslemAkisID, MasterStokIslemAkisID, * 
+From IT06_Stoklar S 
+Inner Join IT06_Stoklar_MamulKumas SMK On S.UrunTID = SMK.UrunTID
+Inner Join IT06_StoklarIslemAkis SIA On SIA.StokIslemAkisID = SMK.StokIslemAkisID
+Where S.UrunKodu = '48002.0001.150.00000.2209021/V9.0.000'
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

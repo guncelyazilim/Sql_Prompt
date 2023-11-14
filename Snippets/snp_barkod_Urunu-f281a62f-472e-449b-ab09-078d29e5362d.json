@@ -1,0 +1,6 @@
+{
+  "id": "f281a62f-472e-449b-ab09-078d29e5362d",
+  "prefix": "snp_barkod_Urunu",
+  "description": "",
+  "body": "SELECT\tSKSN.SeriID, SK.UrunID, S.UrunTID, S.UrunKodu, S.UrunAdi\nFrom\tIT08_SeriM SM\n\t\tInner Join IT06_StokKartSeriNo SKSN On SKSN.SeriID = SM.SeriID\n\t\tInner Join IT06_StokKarti SK On SK.UrunID = SKSN.UrunID\n\t\tInner Join IT06_Stoklar S On S.UrunTID = SK.UrunTID\nWhere\tSM.SeriID = $CURSOR$"
+}

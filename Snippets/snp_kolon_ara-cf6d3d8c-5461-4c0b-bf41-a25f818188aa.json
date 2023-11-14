@@ -1,0 +1,6 @@
+{
+  "id": "cf6d3d8c-5461-4c0b-bf41-a25f818188aa",
+  "prefix": "snp_kolon_ara",
+  "description": "",
+  "body": "Select      C.name Column_Name, O.name As Object_Name, O.type_desc\nFrom        sys.columns C\n            Inner Join sys.objects O On O.object_id = C.object_id\nWhere       C.name Like '%$CURSOR$%'\nOrder By    O.type_desc"
+}

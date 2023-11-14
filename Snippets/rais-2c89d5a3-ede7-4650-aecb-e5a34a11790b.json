@@ -1,0 +1,6 @@
+{
+  "id": "2c89d5a3-ede7-4650-aecb-e5a34a11790b",
+  "prefix": "rais",
+  "description": "",
+  "body": "Raiserror('$CURSOR$',16,1)"
+}

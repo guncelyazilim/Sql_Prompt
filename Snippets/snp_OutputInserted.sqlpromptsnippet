@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_OutputInserted</Title>
+      <Shortcut>snp_OutputInserted</Shortcut>
+      <Description>snp_OutputInserted</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @AmbarID Table(AmbarID    Int,
+                       SAPAmbarID Int)
+
+Insert  dbo.IT01_SAP_Ambarlar(Lgobe, LeoAmbarID)
+Output Inserted.LeoAmbarID, Inserted.SAPAmbarID
+Into @AmbarID
+Select  LEFT(AmbarNo, 16), AmbarID From dbo.ITTEXTILE_Ambarlar Where SAPAmbarID Is Null And Aktif = 1
+
+Update  A
+Set     A.SAPAmbarID = FF.SAPAmbarID
+From    dbo.ITTEXTILE_Ambarlar A
+        Inner Join @AmbarID FF On FF.AmbarID = A.AmbarID]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

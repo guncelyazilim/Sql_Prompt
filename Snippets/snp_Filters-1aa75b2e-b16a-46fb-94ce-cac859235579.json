@@ -1,0 +1,6 @@
+{
+  "id": "1aa75b2e-b16a-46fb-94ce-cac859235579",
+  "prefix": "snp_Filters",
+  "description": "Insert IT15_ObjectsMFilters",
+  "body": "Declare  @ITObjectID int = 25933\nInsert IT15_ObjectsMFilters ( ITObjectID, ITObjectFilterName, ITObjectWhereText, IsDefault, SiraNo )\nSelect @ITObjectID, ITObjectFilterName, ITObjectWhereText, IsDefault, SiraNo\nFrom IT15_ObjectsMFilters OMF \nWhere OMF.ITObjectID = 20152\n"
+}

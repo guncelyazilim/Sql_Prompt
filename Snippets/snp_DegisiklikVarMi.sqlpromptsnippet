@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_DegisiklikVarMi</Title>
+      <Shortcut>snp_DegisiklikVarMi</Shortcut>
+      <Description>AuditDB değişkliklere bakılır</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select [ObjectName], *
+From [LEOAuditDB].[dbo].[DDLEvents]
+Where Objectname = ''
+Order By LeoEventID DESC]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

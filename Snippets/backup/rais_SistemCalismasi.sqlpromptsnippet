@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>rais_SistemCalismasi</Title>
+      <Shortcut>rais_SistemCalismasi</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Raiserror('Sistemde çalışma var lütfen 1 dk sonra tekrar deneyiniz. %d',16,1, $CURSOR$)
+	]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

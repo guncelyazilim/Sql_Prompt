@@ -1,0 +1,6 @@
+{
+  "id": "89bef4ff-89eb-4729-a4cb-505d25332f3a",
+  "prefix": "du",
+  "description": "Drop user",
+  "body": "DROP USER "
+}

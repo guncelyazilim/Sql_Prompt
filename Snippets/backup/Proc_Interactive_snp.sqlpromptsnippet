@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Proc_Interactive</Title>
+      <Shortcut>snp_Proc_Interactive</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Create Procedure $CURSOR$ (
+
+/* Interaktif */
+@Cevap tinyint , @SoruNo smallint Output , @msjText varchar(200) Output , @Sonuc tinyint Output)
+As
+Set NoCount On
+Begin
+    Begin Try
+        Declare @IslemOk tinyint 
+
+        Set @IslemOk = 0
+        If IsNull(@SoruNo,-1) = -1 Begin
+            Set @msjText = 'İŞİ BAŞLATMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ?'
+            Set @SoruNo = 10
+            Set @Sonuc = 1
+        End Else
+		If @SoruNo = 10 Begin
+            If @Cevap = 0 Begin
+				Set @IslemOk = 1
+            End Else Begin
+                Set @Sonuc = 0
+            End
+        End 
+		If @IslemOk = 1 Begin
+		
+				/* TO-DO */
+
+            Set @Sonuc = 0
+        End
+    End Try 
+    Begin Catch	
+        Declare @ITObjectName nVarchar(126)
+        Set @ITObjectName = Object_Name(@@PROCID)
+        Execute SP15_GenerateError @ITObjectName
+    End Catch
+End
+Go
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

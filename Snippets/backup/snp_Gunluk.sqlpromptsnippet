@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Gunluk</Title>
+      <Shortcut>snp_Gunluk</Shortcut>
+      <Description>Günlük Yapılan Listesi</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select Distinct [ObjectName]
+  FROM [LEOAuditDB].[dbo].[DDLEvents]
+  Where HostName = 'GNC-NB115'
+	And EventDate Between '2021-01-11 08:00' And '2021-01-11 20:00']]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

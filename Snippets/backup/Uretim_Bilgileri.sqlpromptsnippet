@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Uretim_Bilgileri</Title>
+      <Shortcut>Uretim_Bilgileri</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select  GCM.CikanID, GCM.AddDate, P.ProsesAdi, S.UrunAdi, GCM.IsNo, SK.StokKodu
+From    IT07_GerCikanMalzeme GCM
+		Inner Join IT07_GerIsNo GI On GI.IsNo = GCM.IsNo
+		Inner Join IT06_StokKarti SK On SK.UrunID = GCM.UrunID
+		Inner Join IT06_Stoklar S On S.UrunTID = SK.UrunTID
+		Inner Join IT01_Prosesler P On P.ProsesID = GCM.ProsesID
+Where   GCM.SeriID = $CURSOR$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_removed_fields</Title>
+      <Shortcut>snp_removed_fields</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[-- Alanlar silinmiş
+	RAISERROR('Removed fields from table', 16, 1)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

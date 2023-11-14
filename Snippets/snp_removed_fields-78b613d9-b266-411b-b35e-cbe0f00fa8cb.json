@@ -1,0 +1,6 @@
+{
+  "id": "78b613d9-b266-411b-b35e-cbe0f00fa8cb",
+  "prefix": "snp_removed_fields",
+  "description": "",
+  "body": "-- Alanlar silinmiş\n\tRAISERROR('Removed fields from table', 16, 1)"
+}

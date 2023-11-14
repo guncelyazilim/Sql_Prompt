@@ -1,0 +1,6 @@
+{
+  "id": "3a7e41fd-b27d-45e1-a411-fd80d3208dec",
+  "prefix": "ij",
+  "description": "INNER JOIN fragment",
+  "body": "INNER JOIN "
+}

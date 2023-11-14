@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_HashOlustur_Stuff</Title>
+      <Shortcut>snp_HashOlustur_Stuff</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[OUter Apply(Select STUFF((
+			Select	Concat(';', LD.BarTipID,'-', LD.LotID, '-', Floor(LD.Birim_Mt))
+			From	IT06_LotD LD
+			Where	LD.LotID = LM.LotID
+			Order By  LD.BarTipID, LD.LotID
+			FOR XML PATH('') ),1,1,'') As HashCode) Detay]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

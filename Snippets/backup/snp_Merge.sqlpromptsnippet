@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Merge</Title>
+      <Shortcut>snp_Merge</Shortcut>
+      <Description>Merge: Değişiklik Yönetimi</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Merge IT01_MasterReceteD AS T
+		USING (				
+			Select	RA.MasterReceteID,  ARD.AdimReceteDID, RA.AdimID, Row_Number() Over(Order By RA.SiraNo, ARD.SiraNo) As SiraNo, 
+				DENSE_RANK() Over(Order By RA.SiraNo, ARD.IstekNo) IstekNo,
+				ARD.UrunTID, ARD.BirimMiktar, ARD.ReceteOlcuBirimID, ARD.Aciklama, RA.MasterReceteAdimID
+			From	IT01_MasterReceteAdimlari RA
+					Inner Join IT01_AdimReceteD ARD On ARD.AdimID = RA.AdimID
+			Where	RA.MasterReceteID = @MasterReceteID
+		) AS S
+		ON   S.MasterReceteID = T.MasterReceteID And S.AdimReceteDID = T.AdimReceteDID And S.SiraNo = T.SiraNo
+		WHEN MATCHED  THEN UPDATE SET T.SiraNo = S.SiraNo, T.IstekNo = S.IstekNo,
+										T.UrunTID = S.UrunTID, T.BirimMiktar = S.BirimMiktar, 
+										T.ReceteOlcuBirimID = S.ReceteOlcuBirimID, T.Aciklama = S.Aciklama,
+										T.MasterReceteAdimID = S.MasterReceteAdimID,
+										T.UpdateDate = GetDate()
+		WHEN NOT MATCHED BY TARGET THEN 
+		INSERT (AdimReceteDID, MasterReceteID, MasterReceteAdimID, AdimID, SiraNo, IstekNo, UrunTID, BirimMiktar, ReceteOlcuBirimID, Aciklama, EklemeTipID, AddDate, AddUser) 
+			VALUES(S.AdimReceteDID, S.MasterReceteID, S.MasterReceteAdimID, S.AdimID, S.SiraNo, S.IstekNo, S.UrunTID, S.BirimMiktar, S.ReceteOlcuBirimID, S.Aciklama, 4, GetDate(), @PersonelID)
+		WHEN NOT MATCHED BY SOURCE AND T.MasterReceteID = @MasterReceteID
+		THEN DELETE;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

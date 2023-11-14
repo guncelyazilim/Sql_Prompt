@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_AlanAdiArama_Text</Title>
+      <Shortcut>snp_AlanAdiArama_Text</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select  distinct  So.name, So.xtype from syscomments SC, sysobjects so 
+where sc.text like '%LG_001_03%' and so.id = sc.id
+order by So.xtype ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

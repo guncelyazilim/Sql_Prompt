@@ -1,0 +1,6 @@
+{
+  "id": "371f33e9-cc19-49e9-8366-644a60144405",
+  "prefix": "snp_views",
+  "description": "",
+  "body": "SELECT\n        [name]\n       ,create_date\n       ,modify_date\nFROM\n        sys.views\nWHERE\n        modify_date > DATEADD(day,-30,GETDATE())"
+}

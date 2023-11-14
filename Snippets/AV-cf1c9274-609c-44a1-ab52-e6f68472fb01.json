@@ -1,0 +1,6 @@
+{
+  "id": "cf1c9274-609c-44a1-ab52-e6f68472fb01",
+  "prefix": "AV",
+  "description": "ALTER VIEW fragment",
+  "body": "ALTER VIEW "
+}

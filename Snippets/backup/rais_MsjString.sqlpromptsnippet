@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>rais_MsjString</Title>
+      <Shortcut>rais_MsjString</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @mmsj varchar(200)
+
+			Set @mmsj = '$CURSOR$'
+
+			Raiserror(@mmsj,16,1)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

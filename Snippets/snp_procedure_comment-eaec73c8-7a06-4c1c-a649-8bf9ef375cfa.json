@@ -1,0 +1,6 @@
+{
+  "id": "eaec73c8-7a06-4c1c-a649-8bf9ef375cfa",
+  "prefix": "snp_procedure_comment",
+  "description": "Procedure comment",
+  "body": "-------------------------------------------------------------------------------\n-- Author       omer.koseoglu\n-- Created      \n-- Purpose      622 nolu hkk föy rapor verisi oluşturmak\n-------------------------------------------------------------------------------\n-- Modification History\n--\n-- 15.10.2018  Ömer KÖSEOĞLU  \n--      TMP07_HkkFoyRapor Tablosu oluşturularak, hata haritası için istenilen formatta veri oluşturulması sağlandı. Talebe göre hata girilmemiş metrelerde boş kayıtlar oluşturuldu.\n--\t\tIT01_Numbers tablosu ara boş kayıtları oluşturabilmek ve benzer ihtiyaçlarda kullanılmak üzere veri ile birlikte eklendi. \n--\t\tProcedure çalıştırıldığında CikanID ile temp tablo kayıtları silinmektedir.\n--\t\tMetresel olarak başka hataları kapsayan hata kodlarının satır çoklamaması ve formatta da ayrıca istenildiği için hata kodları virgül ile ayrılarak yan yana yazıldı. \n-------------------------------------------------------------------------------"
+}

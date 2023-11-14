@@ -1,0 +1,6 @@
+{
+  "id": "fddbba4b-408f-4113-88c7-73b8bb63ab41",
+  "prefix": "snp_hareket_tip_yetki_kontrol",
+  "description": "",
+  "body": "CREATE PROCEDURE PSP06_HareketTipYetkiKontrol ( @HareketTipID INT )\nAS\nSET NOCOUNT ON\nBEGIN\n\n    DECLARE @RolID INT, @HareketTipAdi VARCHAR(100), @IsYetkili BIT = 0\n\n    BEGIN TRY\n\n        SET @RolID = ( SELECT dbo.F15_GetActivePersonelRolID ( 1 ))\n\n        IF EXISTS ( SELECT * FROM ZKC_IT15_HareketTipRolleri KR WHERE KR.ITVisible = 1 AND KR.RolID = @RolID AND KR.HareketTipID = @HareketTipID )\n        BEGIN\n            SET @IsYetkili = 1\n        END\n\n        IF @IsYetkili = 0\n        BEGIN\n\t\t\tSET @HareketTipAdi = (SELECT TOP (1) HT.HareketTipAdi From IT01_HareketTipleri HT WHERE HT.HareketTipID = @HareketTipID)\n            RAISERROR ( '<%s> hareket tipine yetkiniz olmadığından detay hareketini silemezsiniz.', 16, 1, @HareketTipAdi )\n        END\n\n    END TRY\n    BEGIN CATCH\n\n        DECLARE @ITObjectName NVARCHAR(126)\n        SET @ITObjectName = OBJECT_NAME ( @@PROCID )\n        EXECUTE SP15_GenerateError @ITObjectName\n\n    END CATCH\n\nEND\n\nGO"
+}

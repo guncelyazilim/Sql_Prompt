@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_UrunID_Ambar_Denklik</Title>
+      <Shortcut>snp_UrunID_Ambar_Denklik</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @AmbarID Int, @UrunID int
+
+
+Set @AmbarID = 8
+Set @UrunID = 88861
+
+Select k.Toplam, k.Giris, k.Cikis, k.Diger, k.Giris-k.Cikis As Fark, k.AmbarKg
+From (
+	Select  SUM(FD.Miktar_Kg) As Toplam, 
+			SUM(Case When FT.FisTipID = 10 Then FD.Miktar_Kg Else 0 end) As Giris,
+			SUM(Case When FT.FisTipID = 20 Then FD.Miktar_Kg Else 0 end) As Cikis,
+			SUM(Case When FT.FisTipID not In (10,20) Then FD.Miktar_Kg Else 0 end) As Diger,
+			(SELECT SUM(SA.Miktar_Kg) FROM IT06_StokAmbar SA Where SA.UrunID = FD.UrunID And SA.AmbarID = FM.AmbarID) As AmbarKg
+
+	From    IT06_HareketFisD FD
+			Inner Join IT06_HareketFisM FM On FM.FisID = FD.FisID
+			INNER JOIN IT01_FisTurleri FT On FT.FisTurID = FM.FisTurID
+		
+	Where   FD.UrunID = @UrunID And   FM.AmbarID In (@AmbarID)
+
+	Group By FD.UrunID, FM.AmbarID
+) k
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,6 @@
+{
+  "id": "8378fbac-66da-4e74-a557-273affad6df9",
+  "prefix": "ctf",
+  "description": "Create multi-statement table-valued function",
+  "body": "CREATE FUNCTION $CURSOR$--(owner_name.)function_name\n  --(@parameter_name AS scalar_data_type ( = default_value ), ...)\nRETURNS @return_variable TABLE --table type definition\n--WITH ENCRYPTION|SCHEMABINDING, ...\nAS\nBEGIN\n  -- Function body here\n  RETURN\nEND\nGO\n"
+}

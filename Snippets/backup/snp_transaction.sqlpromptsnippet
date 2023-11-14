@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_transaction</Title>
+      <Shortcut>snp_transaction</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[DECLARE @TransactionName varchar(20) = 'TransactionDBA';  
+
+BEGIN TRY
+    BEGIN TRAN @TransactionName
+		PRINT ('Try transaction')
+		-- Test here
+
+		-- Test parameters	
+
+		-- Test here
+
+	-- ROLLBACK TRAN @TransactionName
+	COMMIT TRAN @TransactionName
+END TRY
+BEGIN CATCH
+	PRINT ('Catch block!')
+
+	IF(@@TRANCOUNT > 0)
+        ROLLBACK TRAN @TransactionName
+
+	Declare @ITObjectName nvarchar(126) Set @ITObjectName = OBJECT_NAME (@@PROCID) Execute SP15_GenerateError @ITObjectName 
+END CATCH
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

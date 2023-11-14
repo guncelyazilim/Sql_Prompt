@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_For_XML_Path_Birlestirme</Title>
+      <Shortcut>snp_For_XML_Path_Birlestirme</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select Top 1 @MakaraUrunTID = S.UrunTID
+From    IT06_Stoklar S
+        Cross Apply (Select Stuff((	
+								Select   Concat(';', SH.HamUrunTID, '-', SH.TaharID, '-', Convert(int, SH.Siklik_TelSayisi))
+								From     IT06_StokHammadde SH
+								Where    SH.UrunTID = S.UrunTID
+								Order By SH.Siklik_TelSayisi Desc, SH.HamUrunTID Asc
+								For Xml Path('')), 1, 1, '') As SHash) SHMD
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

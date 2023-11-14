@@ -1,0 +1,6 @@
+{
+  "id": "41c4a0b8-35dd-4728-8e2a-6f1fb051c224",
+  "prefix": "ateta",
+  "description": "Enable all triggers on table",
+  "body": "ALTER TABLE $CURSOR$ ENABLE TRIGGER ALL"
+}

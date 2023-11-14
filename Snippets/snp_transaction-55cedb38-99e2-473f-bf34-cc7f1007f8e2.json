@@ -1,0 +1,6 @@
+{
+  "id": "55cedb38-99e2-473f-bf34-cc7f1007f8e2",
+  "prefix": "snp_transaction",
+  "description": "",
+  "body": "DECLARE @TransactionName varchar(20) = 'TransactionDBA';  \n\nBEGIN TRY\n    BEGIN TRAN @TransactionName\n\t\tPRINT ('Try transaction')\n\t\t-- Test here\n\n\t\t-- Test parameters\t\n\n\t\t-- Test here\n\n\t-- ROLLBACK TRAN @TransactionName\n\tCOMMIT TRAN @TransactionName\nEND TRY\nBEGIN CATCH\n\tPRINT ('Catch block!')\n\n\tIF(@@TRANCOUNT > 0)\n        ROLLBACK TRAN @TransactionName\n\n\tDeclare @ITObjectName nvarchar(126) Set @ITObjectName = OBJECT_NAME (@@PROCID) Execute SP15_GenerateError @ITObjectName \nEND CATCH\n"
+}

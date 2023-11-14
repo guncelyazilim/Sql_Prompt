@@ -1,0 +1,6 @@
+{
+  "id": "08c8cb5e-fcd0-4182-9949-30edba6520f9",
+  "prefix": "snp_UrunID_Ambar_Denklik",
+  "description": "",
+  "body": "Declare @AmbarID Int, @UrunID int\n\n\nSet @AmbarID = 8\nSet @UrunID = 88861\n\nSelect k.Toplam, k.Giris, k.Cikis, k.Diger, k.Giris-k.Cikis As Fark, k.AmbarKg\nFrom (\n\tSelect  SUM(FD.Miktar_Kg) As Toplam, \n\t\t\tSUM(Case When FT.FisTipID = 10 Then FD.Miktar_Kg Else 0 end) As Giris,\n\t\t\tSUM(Case When FT.FisTipID = 20 Then FD.Miktar_Kg Else 0 end) As Cikis,\n\t\t\tSUM(Case When FT.FisTipID not In (10,20) Then FD.Miktar_Kg Else 0 end) As Diger,\n\t\t\t(SELECT SUM(SA.Miktar_Kg) FROM IT06_StokAmbar SA Where SA.UrunID = FD.UrunID And SA.AmbarID = FM.AmbarID) As AmbarKg\n\n\tFrom    IT06_HareketFisD FD\n\t\t\tInner Join IT06_HareketFisM FM On FM.FisID = FD.FisID\n\t\t\tINNER JOIN IT01_FisTurleri FT On FT.FisTurID = FM.FisTurID\n\t\t\n\tWhere   FD.UrunID = @UrunID And   FM.AmbarID In (@AmbarID)\n\n\tGroup By FD.UrunID, FM.AmbarID\n) k\n"
+}

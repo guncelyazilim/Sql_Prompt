@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_dikkattttt</Title>
+      <Shortcut>snp_dikkattttt</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[/*
+	                D     K  K     T
+					D__İ__K__K__A__T
+					D  İ  K  K  A  T
+					D__İ__K__K__A__T
+                    /               \
+                   /                 \
+                  /                   \
+                  |   XXXX     XXXX   |
+                  |   XXXX     XXXX   |
+                  |   XXX       XXX   |
+                  \         X         /
+                   --\     XXX     /--
+                    | |    XXX    | |
+                    | |           | |
+                    |  I I I I I I  |
+                    |  D İ K K A T  |
+                     \             /
+                      --         --
+                        \-------/
+*/]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

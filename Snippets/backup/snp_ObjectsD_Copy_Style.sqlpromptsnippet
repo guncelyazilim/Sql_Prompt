@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_ObjectsD_Copy_Style</Title>
+      <Shortcut>snp_ObjectsD_Copy_Style</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Update OD  Set HeaderStyle = OD2.HeaderStyle,
+			ContentStyle = OD2.ContentStyle
+From	IT15_ObjectsD OD
+		Inner Join IT15_ObjectsD OD2 On OD2.ITObjectID = 11485 And OD.FieldName = OD2.FieldName
+Where	OD.ITObjectID = 11610
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_IsEmri_Siparis</Title>
+      <Shortcut>snp_IsEmri_Siparis</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select  PRM.IsEmriNo, SD.SiparisDetayID, SD.SiparisID, SM.FirmaID, F.FirmaKodu
+From    IT05_PartiRotaM PRM
+        Inner Join IT05_PlanCikanM PCM On PCM.IsEmriNo = PRM.IsEmriNo
+        Inner Join IT04_SiparisParti SP On SP.PartiID = PRM.PartiID
+        Inner Join IT04_SiparisD SD On SD.SiparisDetayID = SP.SiparisDetayID
+        Inner Join IT04_SiparisM SM On SM.SiparisID = SD.SiparisID
+        Inner Join IT01_Firmalar F On F.FirmaID = SM.FirmaID
+Where   PRM.IsEmriNo = $CURSOR$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,6 @@
+{
+  "id": "2f3b6515-e3f8-40e4-b119-c910f31e51d0",
+  "prefix": "snp_trig",
+  "description": "",
+  "body": "Create Trigger $CURSOR$ On Tablo\n    For Update\nAs\nSet NoCount On\nBegin \n    Begin Try\n\n    End Try\n    Begin Catch\n        Declare @ITObjectName nVarchar(126);\n        Set @ITObjectName = Object_Name(@@PROCID);\n        Execute SP15_GenerateError @ITObjectName;\n    End Catch\nEnd\nGo\n"
+}

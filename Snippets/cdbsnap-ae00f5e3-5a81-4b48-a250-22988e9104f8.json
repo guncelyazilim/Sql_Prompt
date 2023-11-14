@@ -1,0 +1,16 @@
+{
+  "id": "ae00f5e3-5a81-4b48-a250-22988e9104f8",
+  "prefix": "cdbsnap",
+  "description": "Create database snapshot",
+  "body": "CREATE DATABASE $database_name$ \nON \n    (\n    NAME = $database_name$_data,\n    FILENAME = '$database_name$.ss'\n    )\nAS SNAPSHOT OF $source_database$\nGO",
+  "placeholders": [
+    {
+      "name": "source_database",
+      "defaultValue": ""
+    },
+    {
+      "name": "database_name",
+      "defaultValue": ""
+    }
+  ]
+}

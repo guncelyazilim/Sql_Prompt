@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_dikkattt__222222</Title>
+      <Shortcut>snp_dikkattt__222222</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[/*
+		 AAAA    ##  AA  AA  AA  AA  AAAA   AAAAAAAA   ###### 
+		 AA AA   ..  AA AA   AA AA  AA  AA  TTTTTTTT   ###### 
+		 AA  AA  ##  AAAA    AAAA   AA  AA     ##       ####  
+		 AA  AA  ##  AAAA    AAAA   AAAAAA     ##        ## 
+		 AA AA   ##  AA AA   AA AA  AA  AA     ##        
+		 AAAA    ##  AA  AA  AA  AA AA  AA     ##        ##
+*/]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

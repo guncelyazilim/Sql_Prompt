@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>UrunID_Hareket</Title>
+      <Shortcut>UrunID_Hareket</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select	FD.SeriID, FisDetayID, FD.AddDate, FT.FisTurAdi, FD.Miktar_Mt, FD.Miktar_Kg, FD.Miktar_Ad, S.UrunKodu, S.UrunAdi
+From	IT06_HareketFisD FD
+		INNER JOIN IT06_HareketFisM FM On FM.FisID = FD.FisID
+		INNER JOIN IT01_FisTurleri FT ON FT.FisTurID = Fm.FisTurID
+		INNER JOIN IT06_StokKarti SK On SK.UrunID = Fd.urunID 
+		INNER JOIN IT06_Stoklar S On S.UrunTID = SK.UrunTID
+Where	FD.UrunID = $CURSOR$
+Order By FD.FisDetayID]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

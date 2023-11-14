@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>transation_baslat</Title>
+      <Shortcut>transation_baslat</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Set Xact_Abort On
+Set NoCount On
+Go
+
+Begin Try
+    Begin Tran
+	    
+		$CURSOR$
+
+	
+	If @@TRANCOUNT > 0 Commit
+End Try 
+Begin Catch	
+    If @@TRANCOUNT > 0 Rollback
+
+	Declare @msj Varchar(max) = ERROR_MESSAGE()
+
+	Raiserror('%s',16,1, @msj)
+
+End Catch]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

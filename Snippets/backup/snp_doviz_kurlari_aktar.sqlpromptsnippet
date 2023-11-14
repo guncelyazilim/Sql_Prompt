@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_doviz_kurlari_aktar</Title>
+      <Shortcut>snp_doviz_kurlari_aktar</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[
+SET NOCOUNT ON
+
+DECLARE @BaslangicTarih DATE = CAST('2018-10-30' AS DATE)
+
+Print 'Set NoCount On '
+Print 'Set Ansi_Null_Dflt_On On'
+
+SELECT 
+CONCAT('INSERT INTO IT01_DovizKurlariM ( KurID, KurTarihi, BankaID ) VALUES (', CAST(DKM.KurID AS VARCHAR(10)), ',', '''', FORMAT(DKM.KurTarihi, N'yyyy-MM-dd'), ''',', CAST(DKM.BankaID AS VARCHAR(10)), ')')
+FROM IT01_DovizKurlariM DKM
+WHERE DKM.KurTarihi > @BaslangicTarih
+ORDER BY DKM.KurID ASC
+
+Select CONCAT('INSERT INTO IT01_DovizKurlariD ( KurDetayID, KurID, DovizID, DovizAlis, DovizSatis, EfektifAlis, EfektifSatis ) VALUES (', 
+CAST(DKD.KurDetayID AS VARCHAR(20)), ',', CAST(DKD.KurID AS VARCHAR(20)), ',',CAST(DKD.DovizID AS VARCHAR(10)), ',', 
+CAST(IIF(DKD.DovizAlis IS NULL, 'NULL,', CONCAT('''', CAST(DKD.DovizAlis AS VARCHAR(20)), ''',')) AS VARCHAR(20)), 
+CAST(IIF(DKD.DovizAlis IS NULL, 'NULL,', CONCAT('''', CAST(DKD.DovizAlis AS VARCHAR(20)), ''',')) AS VARCHAR(20)),  
+CAST(IIF(DKD.EfektifAlis IS NULL, 'NULL,', CONCAT('''', CAST(DKD.EfektifAlis AS VARCHAR(10)), ''',')) AS VARCHAR(20)), 
+CAST(IIF(DKD.EfektifSatis IS NULL, 'NULL', CONCAT('''', CAST(DKD.EfektifSatis AS VARCHAR(10)), '''')) AS VARCHAR(20)),
+')') From IT01_DovizKurlariD DKD
+INNER JOIN IT01_DovizKurlariM DKM ON DKM.KurID = DKD.KurID
+WHERE DKM.KurTarihi > @BaslangicTarih
+ORDER BY DKD.KurDetayID ASC
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

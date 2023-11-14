@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Raiserror</Title>
+      <Shortcut>snp_Raiserror</Shortcut>
+      <Description>Host Raiserror</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[	If 'GNC-NB-2103' = dbo.ITHostName() Begin
+		Raiserror('Test',16,1)
+	End ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

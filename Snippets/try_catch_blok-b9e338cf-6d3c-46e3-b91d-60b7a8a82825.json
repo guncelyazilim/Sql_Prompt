@@ -1,0 +1,6 @@
+{
+  "id": "b9e338cf-6d3c-46e3-b91d-60b7a8a82825",
+  "prefix": "try_catch_blok",
+  "description": "",
+  "body": "Begin Try\n    \n\t$CURSOR$    \n\t\nEnd Try \nBegin Catch\t\n    Declare @ITObjectName nVarchar(126);\n    Set @ITObjectName = Object_Name(@@PROCID);\n    Execute SP15_GenerateError @ITObjectName;\nEnd Catch"
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_trig</Title>
+      <Shortcut>snp_trig</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Create Trigger $CURSOR$ On Tablo
+    For Update
+As
+Set NoCount On
+Begin 
+    Begin Try
+
+    End Try
+    Begin Catch
+        Declare @ITObjectName nVarchar(126);
+        Set @ITObjectName = Object_Name(@@PROCID);
+        Execute SP15_GenerateError @ITObjectName;
+    End Catch
+End
+Go
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

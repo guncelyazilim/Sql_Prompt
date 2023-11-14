@@ -1,0 +1,6 @@
+{
+  "id": "1e7c200b-8a00-47cd-9a41-e188193353d2",
+  "prefix": "snp_isnull",
+  "description": "ISNULL ile replace yapar",
+  "body": "ISNULL($SELECTEDTEXT$,$SELECTIONSTART$0$SELECTIONEND$) as $SELECTEDTEXT$"
+}

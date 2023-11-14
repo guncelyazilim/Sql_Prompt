@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_procedure_comment</Title>
+      <Shortcut>snp_procedure_comment</Shortcut>
+      <Description>Procedure comment</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[-------------------------------------------------------------------------------
+-- Author       omer.koseoglu
+-- Created      
+-- Purpose      622 nolu hkk föy rapor verisi oluşturmak
+-------------------------------------------------------------------------------
+-- Modification History
+--
+-- 15.10.2018  Ömer KÖSEOĞLU  
+--      TMP07_HkkFoyRapor Tablosu oluşturularak, hata haritası için istenilen formatta veri oluşturulması sağlandı. Talebe göre hata girilmemiş metrelerde boş kayıtlar oluşturuldu.
+--		IT01_Numbers tablosu ara boş kayıtları oluşturabilmek ve benzer ihtiyaçlarda kullanılmak üzere veri ile birlikte eklendi. 
+--		Procedure çalıştırıldığında CikanID ile temp tablo kayıtları silinmektedir.
+--		Metresel olarak başka hataları kapsayan hata kodlarının satır çoklamaması ve formatta da ayrıca istenildiği için hata kodları virgül ile ayrılarak yan yana yazıldı. 
+-------------------------------------------------------------------------------]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

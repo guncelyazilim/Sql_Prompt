@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_HostError</Title>
+      <Shortcut>snp_HostError</Shortcut>
+      <Description>snp_HostError</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @HostName Varchar(100) , @msj Varchar(100)
+Set @HostName = (Select HOST_NAME()) 
+If @HostName = 'GNC-NB-2103' Begin 
+	Set @msj = 'TEST-1'
+    Raiserror('<%d>',16,1, @msj) 
+End]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,6 @@
+{
+  "id": "ede4effa-db54-478e-9fc9-0f65ac9b9cce",
+  "prefix": "snp_AlanAdiArama_Table",
+  "description": "",
+  "body": "select distinct  so.name, So.xtype\nfrom sys.sysobjects so, sys.syscolumns sc\nwhere so.id = sc.id and sc.name = 'UTSiparisDID'\norder by So.xtype "
+}

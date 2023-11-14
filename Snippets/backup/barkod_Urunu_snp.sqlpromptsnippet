@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_barkod_Urunu</Title>
+      <Shortcut>snp_barkod_Urunu</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[SELECT	SKSN.SeriID, SK.UrunID, S.UrunTID, S.UrunKodu, S.UrunAdi
+From	IT08_SeriM SM
+		Inner Join IT06_StokKartSeriNo SKSN On SKSN.SeriID = SM.SeriID
+		Inner Join IT06_StokKarti SK On SK.UrunID = SKSN.UrunID
+		Inner Join IT06_Stoklar S On S.UrunTID = SK.UrunTID
+Where	SM.SeriID = $CURSOR$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>try_catch_blok</Title>
+      <Shortcut>try_catch_blok</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Begin Try
+    
+	$CURSOR$    
+	
+End Try 
+Begin Catch	
+    Declare @ITObjectName nVarchar(126);
+    Set @ITObjectName = Object_Name(@@PROCID);
+    Execute SP15_GenerateError @ITObjectName;
+End Catch]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

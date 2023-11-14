@@ -1,0 +1,6 @@
+{
+  "id": "31c4f49d-c650-4180-91c3-9216fbb496e1",
+  "prefix": "rais_SistemCalismasi_Sure",
+  "description": "",
+  "body": "if GetDate() < DateAdd(minute, 5,  CONVERT(DateTime, '$DATE(yyy-MM-dd)$ $TIME(hh:mm:ss)$'))\n\tRaiserror('Sistemde çalışma var lütfen 1 dk sonra tekrar deneyiniz. %d',16,1, $CURSOR$)\n\t"
+}

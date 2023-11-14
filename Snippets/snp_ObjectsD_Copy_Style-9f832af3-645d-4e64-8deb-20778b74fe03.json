@@ -1,0 +1,6 @@
+{
+  "id": "9f832af3-645d-4e64-8deb-20778b74fe03",
+  "prefix": "snp_ObjectsD_Copy_Style",
+  "description": "",
+  "body": "Update OD  Set HeaderStyle = OD2.HeaderStyle,\n\t\t\tContentStyle = OD2.ContentStyle\nFrom\tIT15_ObjectsD OD\n\t\tInner Join IT15_ObjectsD OD2 On OD2.ITObjectID = 11485 And OD.FieldName = OD2.FieldName\nWhere\tOD.ITObjectID = 11610\n"
+}

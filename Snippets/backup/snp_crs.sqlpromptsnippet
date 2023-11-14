@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_crs</Title>
+      <Shortcut>snp_crs</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare c Cursor Local For
+		
+Open c
+Fetch Next From c Into @var
+While @@FETCH_STATUS = 0 Begin
+			
+
+	Fetch Next From c Into @var
+End
+Close c
+Deallocate c]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

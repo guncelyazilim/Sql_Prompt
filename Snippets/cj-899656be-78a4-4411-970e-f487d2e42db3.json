@@ -1,0 +1,6 @@
+{
+  "id": "899656be-78a4-4411-970e-f487d2e42db3",
+  "prefix": "cj",
+  "description": "CROSS JOIN fragment",
+  "body": "CROSS JOIN "
+}

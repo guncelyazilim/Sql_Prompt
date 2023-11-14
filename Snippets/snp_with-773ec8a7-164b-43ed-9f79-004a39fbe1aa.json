@@ -1,0 +1,6 @@
+{
+  "id": "773ec8a7-164b-43ed-9f79-004a39fbe1aa",
+  "prefix": "snp_with",
+  "description": "ID parentID patlatma",
+  "body": "with ct (StokIslemAkisID, GirenStokIslemAkisID, MamulOlusumTipID, AnaUrunTID, Seviye) as(\n\tSelect SIA.StokIslemAkisID, SIA.GirenStokIslemAkisID, SIA.MamulOlusumTipID, AnaUrunTID, 0 as Seviye\n\tFrom IT06_StoklarIslemAkis SIA \n\tWhere SIA.StokIslemAkisID = 307\n       union all\n\tSelect SIA.StokIslemAkisID, SIA.GirenStokIslemAkisID, SIA.MamulOlusumTipID, SIA.AnaUrunTID, Seviye+1\n\tFrom IT06_StoklarIslemAkis SIA \n\tinner join ct on SIA.StokIslemAkisID = ct.GirenStokIslemAkisID\n\t--Where SIA.AnaUrunTID = 30785\n)\n\n--Insert AAA (StokIslemAkisID, GirenStokIslemAkisID, MamulOlusumTipID, AnaUrunTID, Seviye)\nselect StokIslemAkisID, GirenStokIslemAkisID, MamulOlusumTipID, AnaUrunTID, Seviye  From ct Order by ct.Seviye DESC "
+}

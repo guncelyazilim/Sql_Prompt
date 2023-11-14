@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_sistem_sorumlusuna_Basvur</Title>
+      <Shortcut>snp_sistem_sorumlusuna_Basvur</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Sistem Sorumlusuna başvurunuz.]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,16 @@
+{
+  "id": "6bd3ef3c-7878-4445-8b61-c2228c5b526f",
+  "prefix": "rais_hostname",
+  "description": "Rais with hostname",
+  "body": "\tDECLARE @ITHostName_Rais VARCHAR(50) = dbo.ITHostName()\n\tIF @ITHostName_Rais = '$hostname$'\n\tBEGIN\n\t\tDeclare @mmsj varchar(200)\n\t\tSet @mmsj = '$msj$'\n\t\n\t\tRaiserror(@mmsj,16,1)\n\t    \n\tEND",
+  "placeholders": [
+    {
+      "name": "hostname",
+      "defaultValue": ""
+    },
+    {
+      "name": "msj",
+      "defaultValue": ""
+    }
+  ]
+}

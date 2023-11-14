@@ -1,0 +1,6 @@
+{
+  "id": "94a8cd8f-4f33-4f12-9e6d-0dc640120518",
+  "prefix": "snp_Nesne_Yeniden_Isımlendir",
+  "description": "",
+  "body": "Declare @Eski Varchar(200) = 'PSP06_Import_Iplik_LeoyAl',\n\t\t@Yeni Varchar(200) = 'SP200_Import_Iplik_LeoyAl'\n\nExec sys.sp_rename @objname = @Eski, @newname = @Yeni\n\nUpdate IT15_ObjectsM Set ITObjectName = @Yeni Where ITObjectName = @Eski\nUpdate IT15_ObjectsD Set ITSPSecimAfter = @Yeni Where ITSPSecimAfter = @Eski\nUpdate IT15_ObjectsD Set ITSPSecim = @Yeni Where ITSPSecim = @Eski\n\n"
+}

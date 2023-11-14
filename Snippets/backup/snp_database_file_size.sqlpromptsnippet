@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_database_file_size</Title>
+      <Shortcut>snp_database_file_size</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[USE master
+GO
+
+SELECT
+    DatabaseName = d.name, DBFileName = f.name, f.type_desc, DBFileLocation = f.physical_name,
+    DBFileSize_MB = CAST(f.size AS DECIMAL(38, 2)) / 128,
+    EffectiveRecoveryModel = CASE
+                                 WHEN d.recovery_model = 1 AND r.last_log_backup_lsn IS NULL THEN 'Pseudo-Full'
+                                 ELSE d.recovery_model_desc
+                             END, r.last_log_backup_lsn
+FROM sys.databases d
+JOIN sys.master_files f ON d.database_id = f.database_id
+JOIN sys.database_recovery_status r ON d.database_id = r.database_id
+--WHERE d.name = 'PHANTOM'
+ORDER BY d.name, f.type, f.name;
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

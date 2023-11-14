@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_RFID_Tag_Al</Title>
+      <Shortcut>snp_RFID_Tag_Al</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @SPRFIDTag1 varchar(24) ,     @prefix varchar(9) = '600601200'
+
+Set @SPRFIDTag1 = '10'
+
+Set @SPRFIDTag1 = Upper(@SPRFIDTag1)
+
+Select  @prefix + Replicate(0, 15 - Len(@SPRFIDTag1)) + @SPRFIDTag1]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

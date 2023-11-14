@@ -1,0 +1,6 @@
+{
+  "id": "804424f6-6b10-4a29-92c2-6cde5c0a9e1d",
+  "prefix": "snp_AlanAdiArama_Text",
+  "description": "",
+  "body": "Select  distinct  So.name, So.xtype from syscomments SC, sysobjects so \nwhere sc.text like '%LG_001_03%' and so.id = sc.id\norder by So.xtype "
+}

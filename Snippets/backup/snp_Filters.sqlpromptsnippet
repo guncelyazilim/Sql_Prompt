@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Filters</Title>
+      <Shortcut>snp_Filters</Shortcut>
+      <Description>Insert IT15_ObjectsMFilters</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare  @ITObjectID int = 25933
+Insert IT15_ObjectsMFilters ( ITObjectID, ITObjectFilterName, ITObjectWhereText, IsDefault, SiraNo )
+Select @ITObjectID, ITObjectFilterName, ITObjectWhereText, IsDefault, SiraNo
+From IT15_ObjectsMFilters OMF 
+Where OMF.ITObjectID = 20152
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

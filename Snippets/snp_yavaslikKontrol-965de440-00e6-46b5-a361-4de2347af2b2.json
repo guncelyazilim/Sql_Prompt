@@ -1,0 +1,6 @@
+{
+  "id": "965de440-00e6-46b5-a361-4de2347af2b2",
+  "prefix": "snp_yavaslikKontrol",
+  "description": "",
+  "body": "SELECT\n    sqltext.TEXT,\n    req.session_id,\n    req.blocking_session_id,\n    req.wait_type,\n    req.wait_time,\n    req.last_wait_type,\n    req.wait_resource,\n    req.open_transaction_count,\n    req.transaction_id,\n    req.total_elapsed_time,blocksession.program_name\nFROM\n    sys.dm_exec_requests req\nleft join sys.dm_exec_sessions blocksession ON req.blocking_session_id=blocksession.session_id\nCROSS APPLY\n    sys.dm_exec_sql_text(req.sql_handle) AS sqltext"
+}

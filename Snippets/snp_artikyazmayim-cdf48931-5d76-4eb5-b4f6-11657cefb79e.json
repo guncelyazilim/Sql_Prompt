@@ -1,0 +1,12 @@
+{
+  "id": "cdf48931-5d76-4eb5-b4f6-11657cefb79e",
+  "prefix": "snp_artikyazmayim",
+  "description": "Barkodları getirir",
+  "body": "Select * From IT08_SeriM SM\nINNER JOIN IT06_Stoklar S ON S.UrunTID = SM.UrunTID\nWHERE SM.SeriID = $burayabarkodyaz$",
+  "placeholders": [
+    {
+      "name": "burayabarkodyaz",
+      "defaultValue": ""
+    }
+  ]
+}

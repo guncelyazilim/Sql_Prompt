@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>rais_hostname</Title>
+      <Shortcut>rais_hostname</Shortcut>
+      <Description>Rais with hostname</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>hostname</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+        <Literal>
+          <ID>msj</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+      </Declarations>
+      <Code Language="sql"><![CDATA[	DECLARE @ITHostName_Rais VARCHAR(50) = dbo.ITHostName()
+	IF @ITHostName_Rais = '$hostname$'
+	BEGIN
+		Declare @mmsj varchar(200)
+		Set @mmsj = '$msj$'
+	
+		Raiserror(@mmsj,16,1)
+	    
+	END]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

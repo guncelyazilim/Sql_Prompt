@@ -1,0 +1,6 @@
+{
+  "id": "2aa4a6e0-dafa-45c6-89c6-1d114d951575",
+  "prefix": "Uretim_Bilgileri",
+  "description": "",
+  "body": "Select  GCM.CikanID, GCM.AddDate, P.ProsesAdi, S.UrunAdi, GCM.IsNo, SK.StokKodu\nFrom    IT07_GerCikanMalzeme GCM\n\t\tInner Join IT07_GerIsNo GI On GI.IsNo = GCM.IsNo\n\t\tInner Join IT06_StokKarti SK On SK.UrunID = GCM.UrunID\n\t\tInner Join IT06_Stoklar S On S.UrunTID = SK.UrunTID\n\t\tInner Join IT01_Prosesler P On P.ProsesID = GCM.ProsesID\nWhere   GCM.SeriID = $CURSOR$"
+}

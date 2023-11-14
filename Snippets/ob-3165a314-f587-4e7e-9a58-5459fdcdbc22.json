@@ -1,0 +1,6 @@
+{
+  "id": "3165a314-f587-4e7e-9a58-5459fdcdbc22",
+  "prefix": "ob",
+  "description": "ORDER BY fragment",
+  "body": "ORDER BY "
+}

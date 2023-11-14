@@ -1,0 +1,6 @@
+{
+  "id": "a314f581-6f8e-4a62-ab60-dfe4c3d7111f",
+  "prefix": "snp_proc_FormClose",
+  "description": "",
+  "body": "Create Procedure $CURSOR$\n\n@IsFormCloseAfterExec TinyInt = 1 Output \nAs\nSet NoCount On\nBegin \n    Begin Try\n        \n\n\n\t\tSet @IsFormCloseAfterExec = 1\n    End Try \n    Begin Catch\t\n        Declare @ITObjectName nVarchar(126);\n        Set @ITObjectName = Object_Name(@@PROCID);\n        Execute SP15_GenerateError @ITObjectName;\n    End Catch\nEnd"
+}

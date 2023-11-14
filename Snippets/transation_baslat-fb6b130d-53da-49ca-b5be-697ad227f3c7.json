@@ -1,0 +1,6 @@
+{
+  "id": "fb6b130d-53da-49ca-b5be-697ad227f3c7",
+  "prefix": "transation_baslat",
+  "description": "",
+  "body": "Set Xact_Abort On\nSet NoCount On\nGo\n\nBegin Try\n    Begin Tran\n\t    \n\t\t$CURSOR$\n\n\t\n\tIf @@TRANCOUNT > 0 Commit\nEnd Try \nBegin Catch\t\n    If @@TRANCOUNT > 0 Rollback\n\n\tDeclare @msj Varchar(max) = ERROR_MESSAGE()\n\n\tRaiserror('%s',16,1, @msj)\n\nEnd Catch"
+}

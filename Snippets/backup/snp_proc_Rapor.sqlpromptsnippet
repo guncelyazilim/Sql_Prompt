@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_proc_Rapor</Title>
+      <Shortcut>snp_proc_Rapor</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Create Procedure $CURSOR$
+(
+
+
+/* Rapor yazdırma */
+@IsRaporExec int Output, @EXCRaporShowDialog tinyint Output, @EXCRaporOutPutType tinyint Output, @EXCRaporFieldValue varchar(100) Output,
+@EXCRaporID int Output, @EXCRaporFieldName varchar(100) Output, @EXCRaporFilterName varchar(100) Output)
+As
+Set NoCount On
+Begin 
+    Begin Try
+        
+
+
+
+		If @EXCRaporOutPutType = 1 Set @IsRaporExec = 1
+		Set @EXCRaporID = 1487
+        Set @EXCRaporFieldName = 'IsEmriNo'
+        Set @EXCRaporFilterName = 'in'
+        Set @EXCRaporFieldValue = @IsEmriNo
+        Set @EXCRaporShowDialog = 0
+
+    End Try 
+    Begin Catch	
+        Declare @ITObjectName nVarchar(126);
+        Set @ITObjectName = Object_Name(@@PROCID);
+        Execute SP15_GenerateError @ITObjectName;
+    End Catch
+End
+Go]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

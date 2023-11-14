@@ -1,0 +1,6 @@
+{
+  "id": "367bd572-bcfa-4a5e-a803-0ec9be2e9622",
+  "prefix": "snp_kullanici_default_alan_degerleri",
+  "description": "",
+  "body": "\t\t\t\tSELECT OD.FieldName, ROD.ITDefValue From IT15_RolObjectsD ROD\n\t\t\t\tINNER JOIN IT15_RolObjectsM ROM ON ROM.RolObjectMID = ROD.RolObjectMID\n\t\t\t\tINNER JOIN IT15_Roller R ON R.RolID = ROM.RolID\n\t\t\t\tINNER JOIN IT15_Kullanicilar K ON K.RolID = R.RolID\n\t\t\t\tINNER JOIN IT15_ObjectsD OD ON OD.ITObjectDID = ROD.ITObjectDID\n\t\t\t\tWHERE K.KullaniciKodu = dbo.F15_GetKullaniciConn() AND ROM.ITObjectID = 20064 \n\t\t\t\tAND OD.FieldName IN ('MaliyetType', 'DesenMenseiID', 'KenarTarakEni', 'CozguIscilikDovizBirimID', 'DokumaIscilikDovizBirimID', 'TaharDovizBirimID')"
+}

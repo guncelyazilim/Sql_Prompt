@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_AlanAdiArama_Table</Title>
+      <Shortcut>snp_AlanAdiArama_Table</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[select distinct  so.name, So.xtype
+from sys.sysobjects so, sys.syscolumns sc
+where so.id = sc.id and sc.name = 'UTSiparisDID'
+order by So.xtype ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

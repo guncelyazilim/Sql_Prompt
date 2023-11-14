@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_barkod_Hareket_proses</Title>
+      <Shortcut>snp_barkod_Hareket_proses</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Select	FD.SeriID, FD.FisDetayID, FD.AddDate, FT.FisTurAdi, P.ProsesAdi, FD.Miktar_Mt, S.UrunAdi, GCM.CikanID
+From	IT06_HareketFisD FD
+		INNER JOIN IT06_HareketFisM FM On FM.FisID = FD.FisID
+		INNER JOIN IT01_FisTurleri FT ON FT.FisTurID = Fm.FisTurID
+		INNER JOIN IT06_StokKarti SK On SK.UrunID = Fd.urunID 
+		INNER JOIN IT06_Stoklar S On S.UrunTID = SK.UrunTID
+		INNER JOIN IT08_SeriM SM ON Sm.seriID = FD.SeriID
+		LEFT OUTER JOIN IT07_GerCikanMalzeme GCM ON GCM.FisDetayID = FD.FisDetayID
+		OUTER APPLY(
+		Select	Distinct GCM2.PRosesID
+		From	IT07_GerGirenMalzemeD G 
+				LEFT OUTER JOIN IT07_GerCikanMalzeme GCM2 ON GCM2.CikanID = G.CikanID
+		Where G.FisDetayID = FD.FisDetayID) GMD
+		LEFT OUTER JOIN IT01_Prosesler P ON P.ProsesID = ISNULL(GCM.ProsesID,GMD.ProsesID)
+		LEFT OUTER JOIN IT01_KaliteKodlari KK ON KK.KaliteID = SM.KaliteID 
+Where	FD.SeriID = $CURSOR$
+Order By FD.FisDetayID]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

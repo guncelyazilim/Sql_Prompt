@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Create_Trigger</Title>
+      <Shortcut>snp_Create_Trigger</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>TABLOADI</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+        <Literal>
+          <ID>TRIG_FUNC</ID>
+          <ToolTip />
+          <Default />
+        </Literal>
+      </Declarations>
+      <Code Language="sql"><![CDATA[Create Trigger $TABLOADI$_$TRIG_FUNC$ On $TABLOADI$
+    For $TRIG_FUNC$
+As
+Set NoCount On
+Begin 
+    Begin Try
+		
+		Declare c$TABLOADI$ Cursor Local For
+			Select	* 
+			From	$TRIG_FUNC$ed i
+		Open c$TABLOADI$
+		Fetch Next From c Into @var
+		While @@FETCH_STATUS = 0 Begin
+					
+		
+			Fetch Next From c$TABLOADI$ Into @var
+		End
+		Close c$TABLOADI$
+		Deallocate c$TABLOADI$
+
+    End Try
+    Begin Catch
+        Declare @ITObjectName nVarchar(126);
+        Set @ITObjectName = Object_Name(@@PROCID);
+        Execute SP15_GenerateError @ITObjectName;
+    End Catch
+End
+Go
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

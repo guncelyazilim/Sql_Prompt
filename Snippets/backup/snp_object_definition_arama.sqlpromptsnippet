@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_object_definition_arama</Title>
+      <Shortcut>snp_object_definition_arama</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @Aranacak Varchar(100) = '$CURSOR$'
+
+Select      O.name, O.type_desc, ASM.definition, 
+			SUBSTRING(ASM.definition, IIF(H.Found > 50, H.Found - 50, 0), 100) GectigiYer,
+			((LEN(ASM.definition)-LEN(REPLACE(ASM.definition, @Aranacak, ''))) / len(@Aranacak)) As [Kac Kez Geciyor]
+From        sys.all_sql_modules ASM
+            Inner Join sys.objects O On O.object_id = ASM.object_id
+            Cross Apply( Select CHARINDEX(@Aranacak, ASM.definition) Found ) H
+Where       H.Found > 0
+Order By    O.type_desc, [Kac Kez Geciyor] ASC]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

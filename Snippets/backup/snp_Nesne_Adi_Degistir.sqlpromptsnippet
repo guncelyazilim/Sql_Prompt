@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Nesne_Adi_Degistir</Title>
+      <Shortcut>snp_Nesne_Adi_Degistir</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @EskiAd nVarchar(200) = 'PSP05_ReceteCiktiAl'
+Declare @YeniAd nVarchar(200) = 'SP05_TMP_PartiOlustur'
+
+Exec sys.sp_rename @objname = @EskiAd, @newname = @YeniAd
+
+Update IT15_ObjectsM Set ITObjectName = @YeniAd Where ITObjectName = @EskiAd]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

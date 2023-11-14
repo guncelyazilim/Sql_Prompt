@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Ansi_DistrubutedTran</Title>
+      <Shortcut>snp_Ansi_DistrubutedTran</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Set Ansi_Nulls On
+Set Ansi_Warnings On
+Go
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

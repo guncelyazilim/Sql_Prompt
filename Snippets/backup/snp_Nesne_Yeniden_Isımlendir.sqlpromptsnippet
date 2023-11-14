@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_Nesne_Yeniden_Isımlendir</Title>
+      <Shortcut>snp_Nesne_Yeniden_Isımlendir</Shortcut>
+      <Description />
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[Declare @Eski Varchar(200) = 'PSP06_Import_Iplik_LeoyAl',
+		@Yeni Varchar(200) = 'SP200_Import_Iplik_LeoyAl'
+
+Exec sys.sp_rename @objname = @Eski, @newname = @Yeni
+
+Update IT15_ObjectsM Set ITObjectName = @Yeni Where ITObjectName = @Eski
+Update IT15_ObjectsD Set ITSPSecimAfter = @Yeni Where ITSPSecimAfter = @Eski
+Update IT15_ObjectsD Set ITSPSecim = @Yeni Where ITSPSecim = @Eski
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

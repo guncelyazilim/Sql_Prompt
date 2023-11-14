@@ -1,0 +1,6 @@
+{
+  "id": "889b2671-ef32-431c-bb91-aef584908ef7",
+  "prefix": "snp_object_definition_arama",
+  "description": "",
+  "body": "Declare @Aranacak Varchar(100) = '$CURSOR$'\n\nSelect      O.name, O.type_desc, ASM.definition, \n\t\t\tSUBSTRING(ASM.definition, IIF(H.Found > 50, H.Found - 50, 0), 100) GectigiYer,\n\t\t\t((LEN(ASM.definition)-LEN(REPLACE(ASM.definition, @Aranacak, ''))) / len(@Aranacak)) As [Kac Kez Geciyor]\nFrom        sys.all_sql_modules ASM\n            Inner Join sys.objects O On O.object_id = ASM.object_id\n            Cross Apply( Select CHARINDEX(@Aranacak, ASM.definition) Found ) H\nWhere       H.Found > 0\nOrder By    O.type_desc, [Kac Kez Geciyor] ASC"
+}

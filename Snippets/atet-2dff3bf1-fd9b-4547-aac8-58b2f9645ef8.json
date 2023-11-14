@@ -1,0 +1,12 @@
+{
+  "id": "2dff3bf1-fd9b-4547-aac8-58b2f9645ef8",
+  "prefix": "atet",
+  "description": "Enable trigger",
+  "body": "ALTER TABLE $table_name$ ENABLE TRIGGER ",
+  "placeholders": [
+    {
+      "name": "table_name",
+      "defaultValue": "[schema].[table_name]"
+    }
+  ]
+}

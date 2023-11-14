@@ -1,0 +1,6 @@
+{
+  "id": "9764fcb5-2372-4327-9e5e-ecfb236d61f0",
+  "prefix": "snp_UserOptions",
+  "description": "",
+  "body": "DECLARE @options INT\nSELECT @options = @@OPTIONS\n\nPRINT @options\nIF ( (1 & @options) = 1 ) PRINT 'DISABLE_DEF_CNST_CHK' \nIF ( (2 & @options) = 2 ) PRINT 'IMPLICIT_TRANSACTIONS' \nIF ( (4 & @options) = 4 ) PRINT 'CURSOR_CLOSE_ON_COMMIT' \nIF ( (8 & @options) = 8 ) PRINT 'ANSI_WARNINGS' \nIF ( (16 & @options) = 16 ) PRINT 'ANSI_PADDING' \nIF ( (32 & @options) = 32 ) PRINT 'ANSI_NULLS' \nIF ( (64 & @options) = 64 ) PRINT 'ARITHABORT' \nIF ( (128 & @options) = 128 ) PRINT 'ARITHIGNORE'\nIF ( (256 & @options) = 256 ) PRINT 'QUOTED_IDENTIFIER' \nIF ( (512 & @options) = 512 ) PRINT 'NOCOUNT' \nIF ( (1024 & @options) = 1024 ) PRINT 'ANSI_NULL_DFLT_ON' \nIF ( (2048 & @options) = 2048 ) PRINT 'ANSI_NULL_DFLT_OFF' \nIF ( (4096 & @options) = 4096 ) PRINT 'CONCAT_NULL_YIELDS_NULL' \nIF ( (8192 & @options) = 8192 ) PRINT 'NUMERIC_ROUNDABORT' \nIF ( (16384 & @options) = 16384 ) PRINT 'XACT_ABORT'"
+}

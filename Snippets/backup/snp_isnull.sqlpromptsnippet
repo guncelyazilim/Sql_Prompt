@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>snp_isnull</Title>
+      <Shortcut>snp_isnull</Shortcut>
+      <Description>ISNULL ile replace yapar</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[ISNULL($SELECTEDTEXT$,$SELECTIONSTART$0$SELECTIONEND$) as $SELECTEDTEXT$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

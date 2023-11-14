@@ -1,0 +1,6 @@
+{
+  "id": "fc593b0f-8bf7-446a-a929-93c17adff90e",
+  "prefix": "dp",
+  "description": "Drop stored procedure",
+  "body": "DROP PROCEDURE "
+}
